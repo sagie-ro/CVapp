@@ -1,0 +1,10 @@
+{% extends 'assignment8.html' %}
+
+{% block Friends %}
+
+  <h2> Friends: </h2>
+  {% for friend in friends %}
+  <li>{{friend}}</li>
+  {% endfor %}
+
+{% endblock %}

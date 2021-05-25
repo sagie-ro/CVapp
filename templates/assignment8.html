@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width ,initial-scale=1.0" >
+    <title>Hobbies</title>
+</head>
+<body>
+    <maim>
+        {% include('header.html') %}
+        {% if curr_user%}
+            <h1>Hello, {{curr_user.first | upper}} {{curr_user.last | upper}}!</h1>
+        {% else %}
+             <h1>Hello, Stranger!</h1>
+        {% endif %}
+        <h2>Hobbies:</h2>
+        <ul>
+            {% for Hobie in Hobbies %}
+                <li> {{Hobie}}</li>
+            {% endfor %}
+        </ul>
+
+        {% block Friends %}
+
+        {% endblock %}
+    </maim>
+
+</body>
+</html>
