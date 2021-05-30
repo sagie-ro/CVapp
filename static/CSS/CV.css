@@ -6,7 +6,12 @@
 }
 
 html{
+    background-attachment: fixed;
+    scroll-behavior: smooth;
     background-image: url("../IMAGES/light-bg.jpg");
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
     --bg: #ebebfc;
     --bg-pannel: linear-gradient(rgb(238, 217, 217), rgb(105, 130, 158));
     --sdw-pannel: rgb(1, 48, 59);
@@ -19,6 +24,8 @@ html{
     z-index: 0;
 }
 html[data-theme='dark']{
+    background-attachment: fixed;
+    scroll-behavior: smooth;
     background-image: url("../IMAGES/bckgrnd.jpg");
     --bg: #ebebfc;
     --bg-pannel: linear-gradient(rgb(6, 172, 172), rgb(30, 53, 59) );
@@ -32,8 +39,9 @@ html[data-theme='dark']{
 }
 .grid-container {
     display: grid;
+    position: absolute;
     grid-template-columns: 15% 85%;
-    grid-template-rows: 40% 20% 20% 20%;
+    grid-template-rows: 20% 20% 20% 20%;
     background: none;
     grid-column-gap: 0;
     grid-row-gap: 3px;
@@ -43,10 +51,10 @@ html[data-theme='dark']{
 }
 
 .grid-main {
-
-    flow: right;
+    position: relative;
     width: 90%;
-    height: 80%;
+    top: 0;
+    bottom: 100px;
     border: none ;
     border-radius: 10px;
     margin: 5px;
@@ -58,14 +66,15 @@ html[data-theme='dark']{
     grid-row-end: 5;
     padding: 100px;
     padding-top: 20px;
-    z-index: 1;
+    padding-bottom: 20px;
+    z-index: 0;
 }
 .grid-main2 {
     position: relative;
-    top: 400px;
+    top: 600px;
     flow: right;
     width: 90%;
-    height: 80%;
+    height: 100%;
     border: none ;
     border-radius: 10px;
     margin: 5px;
@@ -75,8 +84,8 @@ html[data-theme='dark']{
     grid-column-start: 2;
     grid-row-start: 1;
     grid-row-end: 5;
-    padding: 100px;
-    padding-top: 20px;
+    padding: 110px;
+    padding-top: 10px;
     z-index: 1;
 }
 .intro-content{
@@ -124,6 +133,7 @@ a:hover{
     background-image: var(--color-items) ;
     color: var(--color-text);
 }
+
 .grid-side {
     justify-items: stretch;
     box-shadow: 0 0 10px 0 var(--sdw-pannel);

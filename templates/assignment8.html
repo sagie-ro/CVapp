@@ -5,7 +5,7 @@
     <title>Hobbies</title>
 </head>
 <body>
-    <maim>
+    <main>
         {% include('header.html') %}
         {% if curr_user%}
             <h1>Hello, {{curr_user.first | upper}} {{curr_user.last | upper}}!</h1>
@@ -22,7 +22,7 @@
         {% block Friends %}
 
         {% endblock %}
-    </maim>
+    </main>
 
 </body>
 </html>
