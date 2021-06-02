@@ -1,11 +1,35 @@
 {% extends 'cvfetch.html' %}
-
 {% block search %}
-  <h2>Search</h2>
-  <form method="GET" action="assignment9.html">
-    <input name="firstName" type="text" placeholder="first name">
-    <input name="lastName" type="text" placeholder="last name">
-    <input name="email" type="email" placeholder="email">
-    <input name="submit" type="submit">
-  </form>
+  {% if username %}
+    <h1>Welcome, {{username}} {{lastname}}!</h1>
+      <h2>Search</h2>
+      <form method="POST" action="/assignment9">
+        <input name="first_name" type="text" placeholder="first name">
+        <input name="last_name" type="text" placeholder="last name">
+        <input name="email" type="email" placeholder="email">
+        <input name="submit"  type="submit">
+      </form>
+      <form method="GET" action="/assignment9">
+        <input name="LogOut"  type="submit" value="Log Out">
+      </form>
+
+
+  {% else %}
+    <h1>Welcome, stranger!</h1>
+    <h2>please enter your name</h2>
+      <form method="GET" action="/assignment9">
+        <input name="username" type="text" placeholder="First Name">
+        <input name="lastname" type="text" placeholder="Last Name">
+        <input type="submit">
+      </form>
+  {% endif %}
 {% endblock %}
+
+{% block script %}
+
+{% endblock %}
+
+
+
+
+
