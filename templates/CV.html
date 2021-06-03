@@ -21,25 +21,25 @@
 <body>
 <div class="grid-container">
     <div class="toggle-Container">
-                <input type="checkbox" id="switch" name="theme"/>
-                <label for="switch"></label>
-                <div>
-                    <div class="shape sm"></div>
-                    <div class="shape sm"></div>
-                    <div class="shape md"></div>
-                    <div class="shape lg"></div>
-                </div>
-            </div>
+        <input type="checkbox" id="switch" name="theme"/>
+        <label for="switch"></label>
+        <div>
+            <div class="shape sm"></div>
+            <div class="shape sm"></div>
+            <div class="shape md"></div>
+            <div class="shape lg"></div>
+        </div>
+    </div>
     <div class="grid-side">
         <div class="grid-prt">
             <img src="../static/IMAGES/prt.jpg" height=100% width=100% alt="Avatar">
 
 
         </div>
-        <div class="grid-item" id="item-1" ><a href="#intro" type="button"  > Intro  </a></div>
-        <div class="grid-item" id="item-2"><a href="#resume" type="button" > Resume </a></div>
-        <div class="grid-item" id="item-3"><a href="#projects" type="button" >Projects</a></div>
-        <div class="grid-item" id="item-4" onclick=""><a href='contacts' type="button" >Contacts</a></div>
+        <div class="grid-item" id="item-1" ><a class="anchor" href="#intro" type="button"  > Intro  </a></div>
+        <div class="grid-item" id="item-2"><a class="anchor" href="#resume" type="button" > Resume </a></div>
+        <div class="grid-item" id="item-3"><a class="anchor" href="#projects" type="button" >Projects</a></div>
+        <div class="grid-item" id="item-4" onclick=""><a class="anchor" href='contacts' type="button" >Contacts</a></div>
     </div>
     <div class="grid-main">
         <!--intro-->
@@ -58,8 +58,8 @@
                 <br>
             </div>
         </section>
-    </div>
-    <div class="grid-main2">
+
+        <!--    <div class="grid-main2">-->
         <!--resume-->
         <section id="resume">
             <div class="resume-container">
@@ -76,8 +76,8 @@
 
         </section>
 
+        <!--    </div>-->
     </div>
-
 
 </div>
 </body>

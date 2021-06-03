@@ -22,6 +22,8 @@ html{
     --color-lable: linear-gradient(aqua,skyblue);
     --color-toggle-shadow: rgb(1 255 255);
     z-index: 0;
+
+    scroll-snap-type: both mandatory;
 }
 html[data-theme='dark']{
     background-attachment: fixed;
@@ -36,58 +38,78 @@ html[data-theme='dark']{
     --color-toggle: linear-gradient(whitesmoke,ghostwhite);
     --color-lable: linear-gradient(midnightblue,rebeccapurple);
     --color-toggle-shadow: 0 0 5px midnightblue;
+    display: flex;
+    scroll-snap-type: both mandatory;
 }
 .grid-container {
     display: grid;
-    position: absolute;
+
     grid-template-columns: 15% 85%;
-    grid-template-rows: 20% 20% 20% 20%;
+    grid-template-rows: 100% ;
     background: none;
     grid-column-gap: 0;
     grid-row-gap: 3px;
     align-items: center;
     justify-items: center;
-
 }
 
 .grid-main {
+
     position: relative;
+    align-items: center;
+    justify-items: center;
     width: 90%;
-    top: 80px;
-    bottom: 100px;
+    top: 35vh;
     border: none ;
-    border-radius: 10px;
+    /*border-radius: 10px;*/
     margin: 5px;
-    backdrop-filter: blur(20px);
-    box-shadow: 0 0 20px 0 var(--sdw-pannel);
+    /*backdrop-filter: blur(20px);*/
+    /*box-shadow: 0 0 20px 0 var(--sdw-pannel);*/
     /*background: rgba(0,0,0, 0.1);*/
     grid-column-start: 2;
     grid-row-start: 1;
     grid-row-end: 5;
     padding: 100px;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding-bottom: 50vh;
     z-index: 0;
+
 }
-.grid-main2 {
-    position: relative;
-    top: 600px;
-    flow: right;
-    width: 90%;
-    height: 450px;
-    border: none ;
-    border-radius: 10px;
-    margin: 5px;
-    backdrop-filter: blur(20px);
+
+.grid-main section{
+    display: flex;
+    flex: none;
+    justify-content: center;
+    align-items: center;
     box-shadow: 0 0 20px 0 var(--sdw-pannel);
-    /*background: rgba(0,0,0, 0.1);*/
-    grid-column-start: 2;
-    grid-row-start: 1;
-    grid-row-end: 5;
-    padding: 110px;
-    padding-top: 10px;
-    z-index: 1;
+    backdrop-filter: blur(20px);
+    border-radius: 10px;
+    width: 60vw;
+    height: 90vh;
+    /*margin: 5px;*/
+    margin-bottom: 70px;
+    margin-right: 30vw;
+    padding: 10px;
+    scroll-snap-align: center;
 }
+/*.grid-main2 {*/
+/*    position: relative;*/
+/*    top: 600px;*/
+/*    flow: right;*/
+/*    width: 90%;*/
+/*    height: 450px;*/
+/*    border: none ;*/
+/*    border-radius: 10px;*/
+/*    margin: 5px;*/
+/*    backdrop-filter: blur(20px);*/
+/*    box-shadow: 0 0 20px 0 var(--sdw-pannel);*/
+/*    !*background: rgba(0,0,0, 0.1);*!*/
+/*    grid-column-start: 2;*/
+/*    grid-row-start: 1;*/
+/*    grid-row-end: 5;*/
+/*    padding: 110px;*/
+/*    padding-top: 10px;*/
+/*    z-index: 1;*/
+/*}*/
 .intro-content{
     color: var(--color-text);
 }
@@ -113,7 +135,7 @@ html[data-theme='dark']{
     -o-animation: fadeIn 5s;
     -ms-animation: fadeIn 5s;
 }
-a{
+a.anchor{
     margin-left: 10%;
     margin-right: 10%;
     padding: 15%;
@@ -414,3 +436,70 @@ html.transition *:after {
   transition-delay: 0 !important;
 }
 /*  end Toggle  */
+
+/*Media Query*/
+@media screen and (max-width: 738px){
+
+    html{
+        scroll-snap-type: x mandatory;
+    }
+    .grid-container{
+        grid-template-columns: 15% 20% 20% 20% 20% 20%;
+        grid-template-rows: 10vh;
+        display: flex;
+        padding: 0;
+    }
+    .grid-main section{
+        height: 60vh;
+        width: 90vw;
+    }
+    .grid-main {
+        display: flex;
+        position: relative;
+        top: 0;
+        padding: 0;
+        margin: 0;
+        margin-left: 15vw;
+        margin-top: 15vh;
+
+    }
+    .grid-side{
+
+        justify-items: stretch;
+        display: flex;
+        position: fixed;
+        bottom: 10px;
+        width:65vw;
+        height: 15%;
+        border: none ;
+        margin-top: 0px;
+        margin-bottom: 10px;
+        margin-left: 15%;
+        background-image: var(--bg-pannel) ;
+        padding: 0;
+        border-radius: 5px;
+        column-gap: 1px;
+        z-index: 2;
+    }
+    .toggle-Container{
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    display: block;
+    height: 50px;
+    width: 100px;
+    border-radius: 50px;
+    background-image: var(--color-lable);
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 1;
+    grid-row-end: 1;
+    box-shadow: var(--color-toggle-shadow);
+    z-index: 3;
+    }
+    html{
+        height: 90vh;
+    }
+
+}
+
