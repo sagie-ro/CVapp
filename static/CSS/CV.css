@@ -72,7 +72,6 @@ html[data-theme='dark']{
     padding: 100px;
     padding-bottom: 50vh;
     z-index: 0;
-
 }
 
 .grid-main section{
@@ -91,6 +90,9 @@ html[data-theme='dark']{
     padding: 10px;
     scroll-snap-align: center;
 }
+.resume-container{
+        position: relative;
+    }
 /*.grid-main2 {*/
 /*    position: relative;*/
 /*    top: 600px;*/
@@ -433,7 +435,7 @@ html.transition *,
 html.transition *:before,
 html.transition *:after {
   transition: all 750ms !important;
-  transition-delay: 0 !important;
+  transition-delay: 0ms !important;
 }
 /*  end Toggle  */
 
@@ -442,16 +444,13 @@ html.transition *:after {
 
     html{
         scroll-snap-type: x mandatory;
+        height: 90vh;
     }
     .grid-container{
         grid-template-columns: 15% 20% 20% 20% 20% 20%;
         grid-template-rows: 10vh;
         display: flex;
         padding: 0;
-    }
-    .grid-main section{
-        height: 60vh;
-        width: 90vw;
     }
     .grid-main {
         display: flex;
@@ -463,8 +462,11 @@ html.transition *:after {
         margin-top: 15vh;
 
     }
+    .grid-main section{
+        height: 60vh;
+        width: 90vw;
+    }
     .grid-side{
-
         justify-items: stretch;
         display: flex;
         position: fixed;
@@ -480,6 +482,9 @@ html.transition *:after {
         border-radius: 5px;
         column-gap: 1px;
         z-index: 2;
+    }
+    a.anchor{
+        font-size: 0.7em;
     }
     .toggle-Container{
     position: fixed;
@@ -497,8 +502,10 @@ html.transition *:after {
     box-shadow: var(--color-toggle-shadow);
     z-index: 3;
     }
-    html{
-        height: 90vh;
+    .resume-container{
+        position: relative;
+        width: 65%;
+        max-width: 60vh;;
     }
 
 }
