@@ -22,7 +22,6 @@ html{
     --color-lable: linear-gradient(aqua,skyblue);
     --color-toggle-shadow: rgb(1 255 255);
     z-index: 0;
-
     scroll-snap-type: both mandatory;
 }
 html[data-theme='dark']{
@@ -38,7 +37,6 @@ html[data-theme='dark']{
     --color-toggle: linear-gradient(whitesmoke,ghostwhite);
     --color-lable: linear-gradient(midnightblue,rebeccapurple);
     --color-toggle-shadow: 0 0 5px midnightblue;
-    display: flex;
     scroll-snap-type: both mandatory;
 }
 .grid-container {
@@ -91,8 +89,8 @@ html[data-theme='dark']{
     scroll-snap-align: center;
 }
 .resume-container{
-        position: relative;
-    }
+    max-height: border-box;
+}
 /*.grid-main2 {*/
 /*    position: relative;*/
 /*    top: 600px;*/
