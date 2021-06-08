@@ -1,6 +1,15 @@
-from flask import Flask, render_template, request, session
+from flask import Flask, request, session, Blueprint
+from flask import render_template, jsonify
+import mysql.connector
 
 app = Flask(__name__)
+# app.config.from_pyfile('settings.py')
+
+# pages
+## assignment10
+from pages.assignment10.assignment10 import assignment10
+
+app.register_blueprint(assignment10)
 
 
 @app.route('/main')
