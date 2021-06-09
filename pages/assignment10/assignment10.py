@@ -25,8 +25,8 @@ def index():
         # password = request.form['password']
         query = "INSERT INTO users(email, first_name, last_name ) " \
                 "VALUES ('%s', '%s, '%s'')" % (email, first_name, last_name)
-        interact_db(query=query, query_type='commit')
-        return render_template('assignment10.html')
+        query_result = interact_db(query=query, query_type='commit')
+        return render_template('assignment10.html', users=query_result)
     # UPDATE
     if current_method == 'PUT':
         first_name = request.form['first_name']
@@ -34,8 +34,8 @@ def index():
         email = request.form['email']
         # password = request.form['password']
         query = "UPDATE users SET firstName = '%s', lastName = '%s' WHERE email = '%s'" % (first_name, last_name, email)
-        interact_db(query=query, query_type='commit')
-        return render_template('assignment10.html')
+        query_result = interact_db(query=query, query_type='commit')
+        return render_template('assignment10.html',users=query_result)
     # DELETE
     if current_method == 'DELETE':
         email = request.form['email']
