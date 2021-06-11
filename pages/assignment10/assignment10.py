@@ -24,6 +24,8 @@ def index():
         email = request.form['email']
         # password = request.form['password']
         query = "INSERT INTO users(email, first_name, last_name ) " \
+                "VALUES ('%s', '%s', '%s')" % (email, first_name, last_name)
+        query = "INSERT INTO users(email, first_name, last_name ) " \
                 "VALUES ('%s', '%s, '%s'')" % (email, first_name, last_name)
         query_result = interact_db(query=query, query_type='commit')
         return render_template('assignment10.html', users=query_result)
