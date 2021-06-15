@@ -1,4 +1,4 @@
-from flask import Blueprint, Flask, request, session, url_for
+from flask import Blueprint, Flask, request, session, url_for, redirect
 from flask import render_template, jsonify
 import mysql.connector
 
@@ -9,41 +9,51 @@ assignment10 = Blueprint('assignment10', __name__,
 
 
 # routes
-@assignment10.route('/assignment10', methods=['GET', 'POST', 'DELETE', 'PUT'])
+@assignment10.route('/assignment10', methods=['GET'])
 def index():
     current_method = request.method
-    # SELECT
-    if current_method == 'GET':
-        query = "select * from users"
-        query_result = interact_db(query=query, query_type='fetch')
-        return render_template('/assignment10.html', users=query_result)
-    # INSERT
-    if current_method == 'POST':
+    query_result = False
+    query1 = "select * from users"
+    query_result = interact_db(query=query1, query_type='fetch')
+    return render_template('/assignment10.html', users=query_result, req_method=request.method)
+
+# UPDATE
+@assignment10.route('/update', methods=['POST'])
+def update():
+    query_result = False
+    first_name = request.form['first_name']
+    last_name = request.form['last_name']
+    email = request.form['email']
+    # password = request.form['password']
+    query3 = "UPDATE users SET firstName = '%s', lastName = '%s' WHERE email = '%s'" % (first_name, last_name, email)
+    query_result = interact_db(query=query3, query_type='fetch')
+    return redirect('/assignment10')
+
+
+# DELETE
+@assignment10.route('/delete', methods=['POST'])
+def delete():
+    query_result = False
+    if request.method == 'POST':
+        email = request.form['email']
+        query4 = "DELETE FROM users WHERE email = '%s'" % (email)
+        query_result = interact_db(query=query4, query_type='commit')
+    return redirect('/assignment10')
+
+# INSERT
+@assignment10.route('/insert', methods=['POST'])
+def insert():
+    query_result = False
+    if request.method == 'POST':
         first_name = request.form['first_name']
         last_name = request.form['last_name']
         email = request.form['email']
         # password = request.form['password']
-        query = "INSERT INTO users(email, first_name, last_name ) " \
-                "VALUES ('%s', '%s', '%s')" % (email, first_name, last_name)
-        query = "INSERT INTO users(email, first_name, last_name ) " \
-                "VALUES ('%s', '%s, '%s'')" % (email, first_name, last_name)
-        query_result = interact_db(query=query, query_type='commit')
-        return render_template('assignment10.html', users=query_result)
-    # UPDATE
-    if current_method == 'PUT':
-        first_name = request.form['first_name']
-        last_name = request.form['last_name']
-        email = request.form['email']
-        # password = request.form['password']
-        query = "UPDATE users SET firstName = '%s', lastName = '%s' WHERE email = '%s'" % (first_name, last_name, email)
-        query_result = interact_db(query=query, query_type='commit')
-        return render_template('assignment10.html',users=query_result)
-    # DELETE
-    if current_method == 'DELETE':
-        email = request.form['email']
-        query = "DELETE FROM users WHERE email = '%s'" % email
-        query_result = interact_db(query=query, query_type='commit')
-        return render_template('/assignment10.html', users=query_result)
+        query2 = f"INSERT INTO users(email, first_name, last_name) VALUES('%s', '%s', '%s')" % (
+            email, first_name, last_name)
+        # data = (email, first_name, last_name)
+        query_result = interact_db(query=query2, query_type='commit')
+    return redirect('/assignment10')
 
 
 # ---------------------------------------------------------------------------------------#
