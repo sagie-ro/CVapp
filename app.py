@@ -3,9 +3,14 @@ from flask import render_template, jsonify
 import mysql.connector
 
 app = Flask(__name__)
-# app.config.from_pyfile('settings.py')
+#app.config.from_pyfile('settings.py')
 
 # pages
+##assignment11
+from pages.assignment11.users import users
+
+app.register_blueprint(users)
+
 ## assignment10
 from pages.assignment10.assignment10 import assignment10
 
@@ -72,7 +77,6 @@ def friends():
                            curr_user=curr_user,
                            Hobbies=['music', 'games', 'movies'],
                            friends=['roni', 'dor', 'maya'])
-
 
 
 if __name__ == '__main__':
