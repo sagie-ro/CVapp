@@ -42,8 +42,9 @@ def find():
 @users.route('/assignment11/users/selected', defaults={'ID': 4})
 @users.route('/assignment11/users/selected/<int:ID>')
 def select_user(ID):
-
-    user_exist = ID in range(1, 8)
+    query = "select * from users"
+    query_result = interact_db(query=query, query_type='fetch')
+    user_exist = ID in range(1, len(query_result)+1)
     if ID == 4:
         query = "select * FROM users WHERE ID = '%s';" %ID
         query_result = interact_db(query=query, query_type='fetch')
